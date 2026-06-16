@@ -35,7 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE TEXTURE ── */
   body::before {
     content: '';
     position: fixed; inset: 0; z-index: 0;
@@ -44,7 +43,6 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -53,324 +51,111 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: -0.3px;
-  }
+  .nav-logo { font-family: var(--serif); font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.3px; }
   .nav-logo em { color: var(--accent); font-style: italic; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a {
-    font-size: 13px; font-weight: 400; letter-spacing: 0.02em;
-    color: var(--ink-light); text-decoration: none;
-    transition: color 0.2s;
-  }
+  .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--ink); }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 0 48px 80px;
     position: relative;
   }
-  .hero-eyebrow {
-    font-size: 12px; font-weight: 400; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--ink-light);
-    margin-bottom: 20px;
-    display: flex; align-items: center; gap: 10px;
-    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: block; width: 28px; height: 1px;
-    background: var(--accent);
-  }
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(52px, 8vw, 96px);
-    font-weight: 400;
-    line-height: 1.0;
-    letter-spacing: -2px;
-    margin-bottom: 32px;
-    opacity: 0; animation: fadeUp 0.9s 0.35s forwards;
-  }
+  .hero-eyebrow { font-size: 12px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: clamp(52px, 8vw, 96px); font-weight: 400; line-height: 1.0; letter-spacing: -2px; margin-bottom: 32px; opacity: 0; animation: fadeUp 0.9s 0.35s forwards; }
   .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-    border-top: 1px solid var(--border); padding-top: 32px;
-    opacity: 0; animation: fadeUp 0.8s 0.55s forwards;
-  }
-  .hero-desc {
-    font-size: 15px; color: var(--ink-light); line-height: 1.7;
-    max-width: 400px;
-  }
+  .hero-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; border-top: 1px solid var(--border); padding-top: 32px; opacity: 0; animation: fadeUp 0.8s 0.55s forwards; }
+  .hero-desc { font-size: 15px; color: var(--ink-light); line-height: 1.7; max-width: 400px; }
   .hero-meta { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
-  .hero-tag {
-    font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
-    padding: 6px 14px; border-radius: 99px;
-    border: 1px solid var(--border);
-    color: var(--ink-light);
-  }
-  .hero-tag.active {
-    background: var(--ink); color: var(--cream);
-    border-color: var(--ink);
-  }
-  .hero-scroll {
-    position: absolute; right: 48px; bottom: 80px;
-    writing-mode: vertical-rl;
-    font-size: 11px; letter-spacing: 0.1em;
-    color: var(--ink-faint);
-    display: flex; align-items: center; gap: 8px;
-    opacity: 0; animation: fadeIn 1s 1.2s forwards;
-  }
-  .hero-scroll::after {
-    content: '';
-    display: block; width: 1px; height: 48px;
-    background: var(--ink-faint);
-    animation: scrollLine 2s 1.5s ease-in-out infinite;
-  }
-  @keyframes scrollLine {
-    0%, 100% { transform: scaleY(1); opacity: 1; }
-    50% { transform: scaleY(0.4); opacity: 0.3; }
-  }
+  .hero-tag { font-size: 12px; font-weight: 500; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 99px; border: 1px solid var(--border); color: var(--ink-light); }
+  .hero-tag.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .hero-scroll { position: absolute; right: 48px; bottom: 80px; writing-mode: vertical-rl; font-size: 11px; letter-spacing: 0.1em; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
+  .hero-scroll::after { content: ''; display: block; width: 1px; height: 48px; background: var(--ink-faint); animation: scrollLine 2s 1.5s ease-in-out infinite; }
+  @keyframes scrollLine { 0%, 100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(0.4); opacity: 0.3; } }
 
-  /* ── SECTIONS ── */
   section { padding: 100px 48px; position: relative; z-index: 1; }
 
-  .section-header {
-    display: flex; align-items: baseline; gap: 16px;
-    margin-bottom: 60px;
-  }
-  .section-num {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
-    color: var(--accent); min-width: 32px;
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 400; letter-spacing: -1px;
-    line-height: 1.1;
-  }
-  .section-line {
-    flex: 1; height: 1px;
-    background: var(--border);
-    margin-left: 24px; margin-bottom: 4px;
-  }
+  .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 60px; }
+  .section-num { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--accent); min-width: 32px; }
+  .section-title { font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); font-weight: 400; letter-spacing: -1px; line-height: 1.1; }
+  .section-line { flex: 1; height: 1px; background: var(--border); margin-left: 24px; margin-bottom: 4px; }
 
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px;
-    align-items: start;
-  }
-  .about-text p {
-    font-size: 16px; color: var(--ink-light); line-height: 1.8;
-    margin-bottom: 20px;
-  }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+  .about-text p { font-size: 16px; color: var(--ink-light); line-height: 1.8; margin-bottom: 20px; }
   .about-text p strong { color: var(--ink); font-weight: 500; }
   .about-facts { display: flex; flex-direction: column; gap: 0; }
-  .fact-row {
-    display: flex; justify-content: space-between; align-items: baseline;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-  }
+  .fact-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--border); }
   .fact-row:first-child { border-top: 1px solid var(--border); }
   .fact-label { font-size: 12px; color: var(--ink-faint); letter-spacing: 0.05em; }
   .fact-value { font-size: 14px; font-weight: 500; color: var(--ink); text-align: right; }
 
-  /* ── SKILLS ── */
   .skills-section { background: var(--ink); color: var(--cream); }
   .skills-section .section-title { color: var(--cream); }
   .skills-section .section-num { color: var(--accent); }
   .skills-section .section-line { background: rgba(245,240,232,0.12); }
-
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-    background: rgba(245,240,232,0.08);
-    border: 1px solid rgba(245,240,232,0.08);
-  }
-  .skill-item {
-    background: var(--ink);
-    padding: 28px 24px;
-    transition: background 0.2s;
-    cursor: default;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(245,240,232,0.08); border: 1px solid rgba(245,240,232,0.08); }
+  .skill-item { background: var(--ink); padding: 28px 24px; transition: background 0.2s; cursor: default; }
   .skill-item:hover { background: #2A2520; }
-  .skill-name {
-    font-size: 15px; font-weight: 500; margin-bottom: 10px;
-    color: var(--cream);
-  }
-  .skill-bar {
-    height: 2px; background: rgba(245,240,232,0.1);
-    border-radius: 99px; margin-bottom: 8px; overflow: hidden;
-  }
-  .skill-bar-fill {
-    height: 100%; background: var(--accent);
-    border-radius: 99px; width: 0;
-    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  .skill-name { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--cream); }
+  .skill-bar { height: 2px; background: rgba(245,240,232,0.1); border-radius: 99px; margin-bottom: 8px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; background: var(--accent); border-radius: 99px; width: 0; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
   .skill-level-label { font-size: 11px; color: rgba(245,240,232,0.4); }
 
-  /* ── PROJECTS ── */
   .projects-list { display: flex; flex-direction: column; gap: 0; }
-  .project-item {
-    display: grid; grid-template-columns: 80px 1fr auto;
-    align-items: start; gap: 32px;
-    padding: 40px 0;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-    cursor: default;
-    position: relative;
-  }
-  .project-item::before {
-    content: '';
-    position: absolute; left: -48px; right: -48px; top: 0; bottom: 0;
-    background: var(--accent-soft);
-    opacity: 0; transition: opacity 0.3s;
-    z-index: -1;
-  }
+  .project-item { display: grid; grid-template-columns: 80px 1fr auto; align-items: start; gap: 32px; padding: 40px 0; border-bottom: 1px solid var(--border); position: relative; text-decoration: none; color: inherit; }
+  .project-item::before { content: ''; position: absolute; left: -48px; right: -48px; top: 0; bottom: 0; background: var(--accent-soft); opacity: 0; transition: opacity 0.3s; z-index: -1; }
   .project-item:hover::before { opacity: 1; }
-  .project-num {
-    font-family: var(--serif);
-    font-size: 48px; font-weight: 400;
-    color: var(--ink-faint); line-height: 1;
-    letter-spacing: -2px;
-  }
+  .project-num { font-family: var(--serif); font-size: 48px; font-weight: 400; color: var(--ink-faint); line-height: 1; letter-spacing: -2px; }
   .project-content { padding-top: 4px; }
   .project-header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
-  .project-name {
-    font-family: var(--serif);
-    font-size: 26px; font-weight: 400; letter-spacing: -0.5px;
-  }
-  .project-badge {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.05em;
-    padding: 4px 10px; border-radius: 99px;
-    background: var(--accent-soft); color: var(--accent);
-  }
-  .project-badge.wip {
-    background: #FFF8E6; color: #A06B00;
-  }
-  .project-desc {
-    font-size: 14px; color: var(--ink-light); line-height: 1.7;
-    max-width: 560px; margin-bottom: 14px;
-  }
+  .project-name { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -0.5px; }
+  .project-badge { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .project-badge.wip { background: #FFF8E6; color: #A06B00; }
+  .project-desc { font-size: 14px; color: var(--ink-light); line-height: 1.7; max-width: 560px; margin-bottom: 14px; }
   .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .project-tag {
-    font-size: 11px; padding: 3px 10px;
-    border: 1px solid var(--border); border-radius: 99px;
-    color: var(--ink-light);
-  }
-  .project-arrow {
-    font-size: 20px; color: var(--ink-faint);
-    margin-top: 8px;
-    transition: transform 0.2s, color 0.2s;
-  }
+  .project-tag { font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 99px; color: var(--ink-light); }
+  .project-arrow { font-size: 20px; color: var(--ink-faint); margin-top: 8px; transition: transform 0.2s, color 0.2s; }
   .project-item:hover .project-arrow { transform: translate(4px,-4px); color: var(--accent); }
 
-  /* ── EXPERIENCE ── */
   .exp-section { background: #EFEAE0; }
   .timeline { display: flex; flex-direction: column; gap: 0; }
-  .timeline-item {
-    display: grid; grid-template-columns: 200px 1fr;
-    gap: 48px; padding: 48px 0;
-    border-bottom: 1px solid var(--border);
-  }
+  .timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 48px; padding: 48px 0; border-bottom: 1px solid var(--border); }
   .timeline-item:first-child { border-top: 1px solid var(--border); }
-  .timeline-date {
-    font-size: 13px; color: var(--ink-light);
-    padding-top: 4px;
-  }
+  .timeline-date { font-size: 13px; color: var(--ink-light); padding-top: 4px; }
   .timeline-date strong { display: block; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 4px; text-transform: uppercase; }
-  .timeline-body {}
-  .timeline-title {
-    font-family: var(--serif);
-    font-size: 22px; font-weight: 400; letter-spacing: -0.3px;
-    margin-bottom: 6px;
-  }
-  .timeline-org {
-    font-size: 13px; color: var(--ink-light); margin-bottom: 16px;
-  }
-  .timeline-desc {
-    font-size: 14px; color: var(--ink-light); line-height: 1.75;
-  }
+  .timeline-title { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.3px; margin-bottom: 6px; }
+  .timeline-org { font-size: 13px; color: var(--ink-light); margin-bottom: 16px; }
+  .timeline-desc { font-size: 14px; color: var(--ink-light); line-height: 1.75; }
   .timeline-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .chip {
-    font-size: 11px; font-weight: 500;
-    padding: 4px 12px; border-radius: 99px;
-    background: rgba(26,23,20,0.07); color: var(--ink);
-  }
+  .chip { font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 99px; background: rgba(26,23,20,0.07); color: var(--ink); }
 
-  /* ── CONTACT ── */
-  .contact-section {
-    background: var(--ink); color: var(--cream);
-    text-align: center;
-  }
+  .contact-section { background: var(--ink); color: var(--cream); text-align: center; }
   .contact-section .section-title { color: var(--cream); font-size: clamp(36px, 5vw, 64px); margin-bottom: 16px; }
   .contact-section .section-num { color: var(--accent); }
-  .contact-tagline {
-    font-size: 16px; color: rgba(245,240,232,0.5); margin-bottom: 56px;
-  }
-  .contact-email {
-    display: inline-block;
-    font-family: var(--serif);
-    font-size: clamp(22px, 3vw, 36px);
-    color: var(--cream);
-    text-decoration: none;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 4px;
-    transition: color 0.2s;
-    margin-bottom: 64px;
-  }
+  .contact-tagline { font-size: 16px; color: rgba(245,240,232,0.5); margin-bottom: 56px; }
+  .contact-email { display: inline-block; font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); color: var(--cream); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color 0.2s; margin-bottom: 64px; }
   .contact-email:hover { color: var(--accent); }
   .contact-links { display: flex; justify-content: center; gap: 24px; }
-  .contact-link {
-    font-size: 13px; font-weight: 500; letter-spacing: 0.05em;
-    color: rgba(245,240,232,0.5);
-    text-decoration: none;
-    display: flex; align-items: center; gap: 8px;
-    transition: color 0.2s;
-  }
+  .contact-link { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; color: rgba(245,240,232,0.5); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .contact-link:hover { color: var(--cream); }
   .contact-link svg { width: 16px; height: 16px; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink);
-    border-top: 1px solid rgba(245,240,232,0.08);
-    padding: 24px 48px;
-    display: flex; justify-content: space-between; align-items: center;
-    color: rgba(245,240,232,0.25); font-size: 12px;
-  }
+  footer { background: var(--ink); border-top: 1px solid rgba(245,240,232,0.08); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; color: rgba(245,240,232,0.25); font-size: 12px; }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  .reveal {
-    opacity: 0; transform: translateY(32px);
-    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
-  }
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  /* ── CURSOR DOT ── */
-  .cursor {
-    width: 8px; height: 8px; background: var(--accent);
-    border-radius: 50%; position: fixed; pointer-events: none;
-    z-index: 9999; transition: transform 0.15s ease;
-    mix-blend-mode: multiply;
-  }
+  .cursor { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; mix-blend-mode: multiply; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
@@ -392,7 +177,6 @@
 
 <div class="cursor" id="cursor"></div>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Raffaele <em>Calcagno</em></a>
   <ul class="nav-links">
@@ -404,7 +188,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <p class="hero-eyebrow">Software Engineer · Naples, Italy</p>
   <h1>Raffaele<br><em>Calcagno</em></h1>
@@ -421,7 +204,6 @@
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-header reveal">
     <span class="section-num">01</span>
@@ -441,35 +223,16 @@
       </p>
     </div>
     <div class="about-facts reveal reveal-delay-2">
-      <div class="fact-row">
-        <span class="fact-label">Location</span>
-        <span class="fact-value">Naples, Italy</span>
-      </div>
-      <div class="fact-row">
-        <span class="fact-label">Degree</span>
-        <span class="fact-value">B.Sc. Computer Science</span>
-      </div>
-      <div class="fact-row">
-        <span class="fact-label">University</span>
-        <span class="fact-value">Università "Parthenope"</span>
-      </div>
-      <div class="fact-row">
-        <span class="fact-label">Graduation</span>
-        <span class="fact-value">100 / 110</span>
-      </div>
-      <div class="fact-row">
-        <span class="fact-label">Focus</span>
-        <span class="fact-value">ML · Cybersecurity · C++</span>
-      </div>
-      <div class="fact-row">
-        <span class="fact-label">Status</span>
-        <span class="fact-value">Available for hire</span>
-      </div>
+      <div class="fact-row"><span class="fact-label">Location</span><span class="fact-value">Naples, Italy</span></div>
+      <div class="fact-row"><span class="fact-label">Degree</span><span class="fact-value">B.Sc. Computer Science</span></div>
+      <div class="fact-row"><span class="fact-label">University</span><span class="fact-value">Università "Parthenope"</span></div>
+      <div class="fact-row"><span class="fact-label">Graduation</span><span class="fact-value">100 / 110</span></div>
+      <div class="fact-row"><span class="fact-label">Focus</span><span class="fact-value">ML · Cybersecurity · C++</span></div>
+      <div class="fact-row"><span class="fact-label">Status</span><span class="fact-value">Available for hire</span></div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="skills-section">
   <div class="section-header reveal">
     <span class="section-num">02</span>
@@ -477,55 +240,18 @@
     <div class="section-line"></div>
   </div>
   <div class="skills-grid" id="skillsGrid">
-    <div class="skill-item reveal">
-      <div class="skill-name">C++</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
-      <div class="skill-level-label">OOP · Design Patterns · CMake</div>
-    </div>
-    <div class="skill-item reveal reveal-delay-1">
-      <div class="skill-name">Python</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
-      <div class="skill-level-label">ML · Data analysis · scripting</div>
-    </div>
-    <div class="skill-item reveal reveal-delay-2">
-      <div class="skill-name">Java</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
-      <div class="skill-level-label">OOP · Data structures</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">Machine Learning</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
-      <div class="skill-level-label">SVM · Random Forest · embeddings</div>
-    </div>
-    <div class="skill-item reveal reveal-delay-1">
-      <div class="skill-name">NLP / LLMs</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
-      <div class="skill-level-label">TinyBERT · SBERT · NL2SQL</div>
-    </div>
-    <div class="skill-item reveal reveal-delay-2">
-      <div class="skill-name">Cybersecurity</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
-      <div class="skill-level-label">Network security · NIDS</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">SQL & Databases</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
-      <div class="skill-level-label">SQLite · query complexity</div>
-    </div>
-    <div class="skill-item reveal reveal-delay-1">
-      <div class="skill-name">Linux / Bash</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="72"></div></div>
-      <div class="skill-level-label">Conda · scripting · workflow</div>
-    </div>
-    <div class="skill-item reveal reveal-delay-2">
-      <div class="skill-name">Git / GitHub</div>
-      <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
-      <div class="skill-level-label">Version control · open source</div>
-    </div>
+    <div class="skill-item reveal"><div class="skill-name">C++</div><div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div><div class="skill-level-label">OOP · Design Patterns · CMake</div></div>
+    <div class="skill-item reveal reveal-delay-1"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div><div class="skill-level-label">ML · Data analysis · scripting</div></div>
+    <div class="skill-item reveal reveal-delay-2"><div class="skill-name">Java</div><div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div><div class="skill-level-label">OOP · Data structures</div></div>
+    <div class="skill-item reveal"><div class="skill-name">Machine Learning</div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div><div class="skill-level-label">SVM · Random Forest · embeddings</div></div>
+    <div class="skill-item reveal reveal-delay-1"><div class="skill-name">NLP / LLMs</div><div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div><div class="skill-level-label">TinyBERT · SBERT · NL2SQL</div></div>
+    <div class="skill-item reveal reveal-delay-2"><div class="skill-name">Cybersecurity</div><div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div><div class="skill-level-label">Network security · NIDS</div></div>
+    <div class="skill-item reveal"><div class="skill-name">SQL & Databases</div><div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div><div class="skill-level-label">SQLite · query complexity</div></div>
+    <div class="skill-item reveal reveal-delay-1"><div class="skill-name">Linux / Bash</div><div class="skill-bar"><div class="skill-bar-fill" data-width="72"></div></div><div class="skill-level-label">Conda · scripting · workflow</div></div>
+    <div class="skill-item reveal reveal-delay-2"><div class="skill-name">Git / GitHub</div><div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div><div class="skill-level-label">Version control · open source</div></div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-header reveal">
     <span class="section-num">03</span>
@@ -534,6 +260,7 @@
   </div>
   <div class="projects-list">
 
+    <!-- 01 SQL Complexity Classifier -->
     <div class="project-item reveal">
       <div class="project-num">01</div>
       <div class="project-content">
@@ -541,21 +268,15 @@
           <h3 class="project-name">SQL Complexity Classifier</h3>
           <span class="project-badge">Thesis project</span>
         </div>
-        <p class="project-desc">
-          Hybrid machine learning classifier that predicts SQL query complexity by combining 6 handcrafted syntactic features with 128-dimensional TinyBERT semantic embeddings. Trained and validated on the Spider NL2SQL benchmark, achieving 94.48% accuracy (F1 = 0.9448) with an SVM Linear classifier. Applied diagnostically to 253 failures of the state-of-the-art C3 model, confirming that structural complexity reliably predicts NL2SQL system breakdowns.
-        </p>
+        <p class="project-desc">Hybrid machine learning classifier that predicts SQL query complexity by combining 6 handcrafted syntactic features with 128-dimensional TinyBERT semantic embeddings. Trained and validated on the Spider NL2SQL benchmark, achieving 94.48% accuracy (F1 = 0.9448) with an SVM Linear classifier. Applied diagnostically to 253 failures of the state-of-the-art C3 model, confirming that structural complexity reliably predicts NL2SQL system breakdowns.</p>
         <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">scikit-learn</span>
-          <span class="project-tag">TinyBERT</span>
-          <span class="project-tag">SVM</span>
-          <span class="project-tag">NL2SQL</span>
-          <span class="project-tag">Spider dataset</span>
+          <span class="project-tag">Python</span><span class="project-tag">scikit-learn</span><span class="project-tag">TinyBERT</span><span class="project-tag">SVM</span><span class="project-tag">NL2SQL</span><span class="project-tag">Spider dataset</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
     </div>
 
+    <!-- 02 NetSentinel -->
     <div class="project-item reveal">
       <div class="project-num">02</div>
       <div class="project-content">
@@ -563,21 +284,15 @@
           <h3 class="project-name">NetSentinel</h3>
           <span class="project-badge wip">In progress</span>
         </div>
-        <p class="project-desc">
-          Network Intrusion Detection System written in modern C++. Captures and analyses live network packets using libpcap, runs a rule engine to flag anomalous traffic patterns, and visualises activity in real time via an ImGui dashboard. Architecture employs Observer, Strategy, and Factory design patterns for a clean, extensible codebase.
-        </p>
+        <p class="project-desc">Network Intrusion Detection System written in modern C++. Captures and analyses live network packets using libpcap, runs a rule engine to flag anomalous traffic patterns, and visualises activity in real time via an ImGui dashboard. Architecture employs Observer, Strategy, and Factory design patterns for a clean, extensible codebase.</p>
         <div class="project-tags">
-          <span class="project-tag">C++17</span>
-          <span class="project-tag">libpcap</span>
-          <span class="project-tag">Dear ImGui</span>
-          <span class="project-tag">CMake</span>
-          <span class="project-tag">Observer pattern</span>
-          <span class="project-tag">Strategy pattern</span>
+          <span class="project-tag">C++17</span><span class="project-tag">libpcap</span><span class="project-tag">Dear ImGui</span><span class="project-tag">CMake</span><span class="project-tag">Observer pattern</span><span class="project-tag">Strategy pattern</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
     </div>
 
+    <!-- 03 NL2SQL Diagnostic Tool -->
     <div class="project-item reveal">
       <div class="project-num">03</div>
       <div class="project-content">
@@ -585,24 +300,49 @@
           <h3 class="project-name">NL2SQL Diagnostic Tool</h3>
           <span class="project-badge">Research</span>
         </div>
-        <p class="project-desc">
-          Analysis pipeline that applies the trained SQL classifier to the error set of the C3 model (ChatGPT-based, state-of-the-art on Spider). Demonstrates that over 70% of C3 failures concentrate on Hard and Extra Hard queries, validating the proposed complexity taxonomy as a reliable predictor of LLM limitations in structured query generation.
-        </p>
+        <p class="project-desc">Analysis pipeline that applies the trained SQL classifier to the error set of the C3 model (ChatGPT-based, state-of-the-art on Spider). Demonstrates that over 70% of C3 failures concentrate on Hard and Extra Hard queries, validating the proposed complexity taxonomy as a reliable predictor of LLM limitations in structured query generation.</p>
         <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">pandas</span>
-          <span class="project-tag">seaborn</span>
-          <span class="project-tag">matplotlib</span>
-          <span class="project-tag">Spider benchmark</span>
+          <span class="project-tag">Python</span><span class="project-tag">pandas</span><span class="project-tag">seaborn</span><span class="project-tag">matplotlib</span><span class="project-tag">Spider benchmark</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
     </div>
 
+    <!-- 04 Gestore Telefonico -->
+    <a href="https://github.com/Rcal97/gestore-telefonico-java" target="_blank" class="project-item reveal" style="text-decoration:none; color:inherit;">
+      <div class="project-num">04</div>
+      <div class="project-content">
+        <div class="project-header">
+          <h3 class="project-name">Gestore Telefonico</h3>
+          <span class="project-badge">Java · Desktop</span>
+        </div>
+        <p class="project-desc">Desktop phonebook application built with JavaFX and SQLite persistence. Implements five Gang-of-Four design patterns — Command, Factory, Observer, Singleton, and Strategy — alongside SOLID principles for a clean, extensible architecture. Features full CRUD contact management with a polished GUI.</p>
+        <div class="project-tags">
+          <span class="project-tag">Java</span><span class="project-tag">JavaFX</span><span class="project-tag">SQLite</span><span class="project-tag">Maven</span><span class="project-tag">Design Patterns</span><span class="project-tag">SOLID</span>
+        </div>
+      </div>
+      <div class="project-arrow">↗</div>
+    </a>
+
+    <!-- 05 RaffCity -->
+    <a href="https://github.com/Rcal97/RaffCity" target="_blank" class="project-item reveal" style="text-decoration:none; color:inherit;">
+      <div class="project-num">05</div>
+      <div class="project-content">
+        <div class="project-header">
+          <h3 class="project-name">RaffCity</h3>
+          <span class="project-badge">Python · Web</span>
+        </div>
+        <p class="project-desc">Progressive Web App for urban mobility built with Flask and Python. Integrates Leaflet.js for interactive mapping, GPS-based geolocation proximity notifications, a Service Worker for offline support, and a SQLAlchemy-backed database for user accounts and saved stops. Features an admin panel for location management.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span><span class="project-tag">Flask</span><span class="project-tag">Leaflet.js</span><span class="project-tag">SQLAlchemy</span><span class="project-tag">PWA</span><span class="project-tag">Service Worker</span>
+        </div>
+      </div>
+      <div class="project-arrow">↗</div>
+    </a>
+
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="exp-section">
   <div class="section-header reveal">
     <span class="section-num">04</span>
@@ -610,7 +350,6 @@
     <div class="section-line"></div>
   </div>
   <div class="timeline">
-
     <div class="timeline-item reveal">
       <div class="timeline-date">
         <strong>Jan – Feb 2026</strong>
@@ -620,22 +359,12 @@
       <div class="timeline-body">
         <h3 class="timeline-title">Research Intern — CISSLab</h3>
         <p class="timeline-org">Computational Intelligence and Smart Systems Laboratory · Università "Parthenope", Naples</p>
-        <p class="timeline-desc">
-          Developed a hybrid automatic classifier for SQL query complexity characterisation, integrating manual feature engineering with Large Language Model embeddings (TinyBERT). The project, framed within the NL2SQL research problem, involved study of state-of-the-art systems (C3-SQL, DAIL-SQL, DIN-SQL), design of a 5-model iterative ablation study, and diagnostic validation against real model failures. Final model achieved 94.48% accuracy with SVM Linear on the Spider benchmark.
-        </p>
+        <p class="timeline-desc">Developed a hybrid automatic classifier for SQL query complexity characterisation, integrating manual feature engineering with Large Language Model embeddings (TinyBERT). The project, framed within the NL2SQL research problem, involved study of state-of-the-art systems (C3-SQL, DAIL-SQL, DIN-SQL), design of a 5-model iterative ablation study, and diagnostic validation against real model failures. Final model achieved 94.48% accuracy with SVM Linear on the Spider benchmark.</p>
         <div class="timeline-chips">
-          <span class="chip">Python</span>
-          <span class="chip">scikit-learn</span>
-          <span class="chip">TinyBERT</span>
-          <span class="chip">SVM</span>
-          <span class="chip">Random Forest</span>
-          <span class="chip">NLP</span>
-          <span class="chip">pandas</span>
-          <span class="chip">Linux</span>
+          <span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">TinyBERT</span><span class="chip">SVM</span><span class="chip">Random Forest</span><span class="chip">NLP</span><span class="chip">pandas</span><span class="chip">Linux</span>
         </div>
       </div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="timeline-date">
         <strong>2021 – 2025</strong>
@@ -645,24 +374,15 @@
       <div class="timeline-body">
         <h3 class="timeline-title">B.Sc. Computer Science</h3>
         <p class="timeline-org">Dipartimento di Scienze e Tecnologie · Università degli Studi di Napoli "Parthenope"</p>
-        <p class="timeline-desc">
-          Three-year degree covering algorithms and data structures, object-oriented programming, operating systems, databases, computer networks, and software engineering. Thesis in machine learning applied to NL2SQL complexity prediction, supervised by Prof. Antonio Maratea at the CISSLab laboratory.
-        </p>
+        <p class="timeline-desc">Three-year degree covering algorithms and data structures, object-oriented programming, operating systems, databases, computer networks, and software engineering. Thesis in machine learning applied to NL2SQL complexity prediction, supervised by Prof. Antonio Maratea at the CISSLab laboratory.</p>
         <div class="timeline-chips">
-          <span class="chip">C++</span>
-          <span class="chip">Java</span>
-          <span class="chip">Python</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Algorithms</span>
-          <span class="chip">OOP</span>
+          <span class="chip">C++</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Algorithms</span><span class="chip">OOP</span>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="contact-section">
   <div class="section-header reveal" style="justify-content:center; border-bottom: 1px solid rgba(245,240,232,0.08); padding-bottom: 48px; margin-bottom: 64px;">
     <span class="section-num">05</span>
@@ -690,7 +410,6 @@
 </footer>
 
 <script>
-  // Cursor dot
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
     cursor.style.left = e.clientX - 4 + 'px';
@@ -699,22 +418,16 @@
   document.addEventListener('mousedown', () => cursor.style.transform = 'scale(2.5)');
   document.addEventListener('mouseup', () => cursor.style.transform = 'scale(1)');
 
-  // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   revealEls.forEach(el => observer.observe(el));
 
-  // Skill bar animation
   const barObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.querySelectorAll('.skill-bar-fill').forEach(fill => {
-          fill.style.width = fill.dataset.width + '%';
-        });
+        e.target.querySelectorAll('.skill-bar-fill').forEach(fill => { fill.style.width = fill.dataset.width + '%'; });
       }
     });
   }, { threshold: 0.2 });
